@@ -4,6 +4,7 @@
 
 #include "RPGProject.h"
 #include "GameFramework/Pawn.h"
+#include "GameFramework/FloatingPawnMovement.h"
 #include "PlayerPawn.generated.h"
 
 UCLASS()
@@ -28,5 +29,21 @@ public:
 
 	virtual void PostInitializeComponents() override;
 	virtual void PossessedBy(AController* NewController) override;
+
+	UPROPERTY(VisibleAnywhere, Category = Collision)
+	UCapsuleComponent* Capsule;
+
+	UPROPERTY(VisibleAnywhere, Category = Visual)
+	USkeletalMeshComponent* Mesh;
+
+	UPROPERTY(VisibleAnywhere, Category = Movement )
+	UFloatingPawnMovement* Movement;
+
+	UPROPERTY(VisibleAnywhere, Category = Camera)
+	USpringArmComponent* SpringArm;
+
+	UPROPERTY(VisibleAnywhere, Category = Camera)
+	UCameraComponent* Camera;
+
 
 };
